@@ -1,0 +1,95 @@
+<html>
+<head>
+        <title>BMI CALCULATOR</title>
+        <style>
+                #tableid {
+                        background-color: #d6d8db;
+                        border-color: blue;
+                        border-collapse: collapse;
+                }
+
+                #bodyid {
+                        margin-top: 80px;
+                        margin-left: 37%
+                }
+
+                #weight {
+                        padding: 7px;
+                        width: 124px;
+                        margin-left: 22px
+                }
+
+                #height {
+                        padding: 6px;
+                        width: 122px;
+                }
+
+                #button {
+                        margin-left: 120px;
+                        padding: 10px;
+                        width: 119px
+                }
+
+                #bmi {
+                        margin-left: 46px;
+                        padding: 6px;
+                        width: 121px
+                }
+
+                #reset {
+                        margin-left: 122px;
+                        padding: 9px;
+                        width: 121px;
+                }
+
+                #bmiform {
+                        padding: 24px;
+                        width: 298px
+                }
+        </style>
+</head>
+
+<body id="bodyid">
+        <table border="2" id="tableid">
+                <tr>
+                        <th style="background-color: blue">
+                                <p style="padding: 8px;margin-left: -231px;color: white">BMI Calculator</p>
+                        </th>
+                </tr>
+                <tr>
+                        <td>
+                                <form id="bmiform" name="bmiForm">
+                                        Height (in meter)
+                                        <input id="height" type="text" name="height" size="5">
+                                        <br>
+                                        <br> Weight(in kg)
+                                        <input id="weight" type="text" name="weight" size="5">
+                                        <br>
+                                        <br> Your BMI
+                                        <input id="bmi" type="text" name="bmi" size="10">
+                                        <br>
+                                        <br>
+                                        <input id="button" type="button" value="Calculate " onClick="calculateBmi()">
+                                        <br>
+                                        <br>
+
+                                </form>
+                        </td>
+                </tr>
+        </table>
+
+</body>
+<script>
+        function calculateBmi() {
+                var weight = document.bmiForm.weight.value
+                var height = document.bmiForm.height.value
+                if (weight > 0 && height > 0) {
+                        var finalBmi = weight / (height / 100 * height / 100)
+                        document.bmiForm.bmi.value = finalBmi;
+                } else {
+                        alert("Please Fill in everything correctly")
+                }
+        }
+</script>
+
+</html>

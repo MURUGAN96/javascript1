@@ -1,0 +1,308 @@
+<html>
+
+<head>
+    <title>
+        chatbox
+    </title>
+    <style rel="stylesheet" id="bootstrap-css">
+        .msg_container_base {
+            background: white;
+            padding: 0 10px 10px;
+            max-height: 80vh;
+            overflow-x: hidden;
+            width: 93%;
+            height: 35%;
+
+        }
+
+        .top-bar {
+            color: white;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .msg_receive {
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .msg_sent {
+            padding-bottom: 20px !important;
+            margin-right: 0;
+
+        }
+
+        .messages {
+            padding: 10px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+        }
+
+        .messages>p {
+            font-size: 13px;
+            margin: 0 0 0.2rem 0;
+        }
+
+        .messages>time {
+            font-size: 11px;
+            color: #ccc;
+        }
+
+        .msg_container {
+            padding: 10px;
+            overflow: hidden;
+            display: flex;
+        }
+
+
+        .avatar {
+            position: relative;
+        }
+
+        .base_receive>.avatar:after {
+            content: "";
+            position: absolute;
+            border: 5px solid #FFF;
+            border-left-color: rgba(0, 0, 0, 0);
+            border-bottom-color: rgba(0, 0, 0, 0);
+        }
+
+        .base_sent {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .base_sent>.avatar:after {
+            content: "";
+            position: absolute;
+            border: 5px solid white;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            box-shadow: 1px 1px 2px rgba(black, 0.2);
+        }
+
+        .msg_sent>time {
+            float: right;
+        }
+
+        .msg_container_base::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+        }
+
+        .msg_container_base::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        .msg_container_base::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #555;
+        }
+
+        .btn-group.dropup {
+            position: fixed;
+            left: 0px;
+            bottom: 0;
+        }
+
+        #input {
+            width: 365px;
+
+            height: 33px;
+        }
+
+        #submit {
+            height: 33px;
+            width: 52px;
+            margin-left: -5px;
+            background-color: #70a6ff;
+            color: white;
+            border-radius: 80px;
+        }
+
+        #align {
+            margin-left: 19%;
+            margin-top: 5%;
+        }
+
+        #table {
+            width: 41%;
+            border-collapse: collapse;
+            border-color: skyblue;
+        }
+
+        #div_p {
+            background-color: #70a6ff;
+            width: 100%;
+            padding: 1px
+        }
+
+        #starter {
+            margin-left: 40%;
+        }
+
+        #register {
+            margin-left: 112px;
+        }
+
+        #email {
+            width: 100%
+        }
+
+        #password {
+            width: 100%;
+            margin-top: 9px;
+        }
+
+        #button {
+            margin-left: 154px;
+            margin-top: 15px;
+            padding: 9px;
+            background-color: skyblue;
+            border-color: skyblue;
+            border-radius: 80px;
+        }
+
+        #div_conversion {
+            margin-left: 33px;
+        }
+
+        #chat {
+            margin-left: 97px;
+        }
+
+        .column {
+            margin-top: 10px;
+            margin-left: -62px;
+        }
+
+        .scrollit {
+            overflow: scroll;
+            height: 529px;
+        }
+
+        h5 {
+            margin-top: -11px;
+            opacity: 0.5;
+        }
+
+        #user {
+            margin-top: -17px;
+            margin-left: 180px;
+            opacity: 0.5;
+        }
+    </style>
+
+
+</head>
+
+<body id="align">
+
+    <table border="2" id="table">
+        <tr>
+            <td>
+                <div class="scrollit">
+                    <div id="div_p">
+                        <p id="starter">Let's chat?</p>
+                    </div>
+                    <p id="register">Please register before that</p>
+                    <input type="email" id="email" placeholder="email" required>
+                    <br>
+                    <input type="password" id="password" placeholder="password">
+                    <br>
+                    <input type="button" id="button" value="start chat" onclick="chat_operation()">
+                    <div id="consultant">
+                        <div id="div_conversion">
+                            <p>Please wait while our operator will start conversion</p>
+                        </div>
+                    </div>
+                    <div id="chat">
+                        <p>Operator joined chat with you</p>
+                    </div>
+
+
+                    <div id="operation">
+                        <div class="panel-body msg_container_base">
+                            <div class="row msg_container base_receive">
+                                <h5>Consultant</h5>
+                                <div class="column">
+                                    <div class="messages msg_receive" style="background: skyblue">
+                                        <p>Hello client!please tell me-How can I help you today?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row msg_container base_sent">
+                                <div class="column">
+                                    <p id="user">user</p>
+                                    <div class="messages msg_sent" style="background-color: gainsboro;">
+
+                                        <p>Hello! Really nice support,thank you!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <chat> . </chat>
+
+                        </div>
+                        <div class="panel-footer">
+                            <div class="input-group" id="myForm">
+                                <input id="input" type="text" placeholder="Write your message here...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" id="submit" type="submit">Send</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+    document.getElementById("operation").style.display = "none";
+    document.getElementById("consultant").style.display = "none";
+    document.getElementById("chat").style.display = "none";
+
+    function chat_operation() {
+        document.getElementById("consultant").style.display = "block";
+        setInterval(function () {
+            document.getElementById("chat").style.display = "block";
+        }, 2000);
+        setInterval(function () {
+            document.getElementById("operation").style.display = "block";
+        }, 3000);
+
+    }
+    $(document).ready(function () {
+
+        window.alert = function () {};
+        var defaultCSS = document.getElementById('bootstrap-css');
+
+        $("#submit").click(function () {
+            var data = $("#input").val();
+            $('chat').append(
+                '<div class="row msg_container base_sent"><div class="column"><div class="messages msg_receive"><p>' +
+                data);
+            clearInput();
+            console.log($('.msg_container_base').innerHeight())
+            $('.msg_container_base').scrollTop($('.msg_container_base')[0].scrollHeight)
+        });
+
+        function clearInput() {
+            $("#myForm :input").each(function () {
+                $(this).val('');
+            });
+        }
+
+        $("#myForm").submit(function () {
+            return false;
+        });
+    });
+</script>
+
+</html>

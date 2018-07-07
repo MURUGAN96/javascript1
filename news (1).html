@@ -1,0 +1,214 @@
+<html>
+
+<head>
+  <title>
+    News
+  </title>
+  <style>
+    #top {
+      margin-left: 37%
+    }
+
+    #color {
+      background-color: wheat
+    }
+
+    .buttonalign {
+      margin-left: 31%;
+      width: 35%;
+      padding: 8px
+    }
+
+    .heading {
+      margin-left: 41%
+    }
+  </style>
+
+  <body id="color">
+    <h1 id="top">INDIA'S TOP NEWS</h1>
+    <h1 class="heading">BUSINESS</h1>
+    <div id='buisness'>
+
+      <input class="buttonalign" type="button" value="For BUSINESS related news click here" onclick="buisness()">
+    </div>
+    <hr>
+    <h1 class="heading">ENTERTAINMENT</h1>
+    <div id='entertainment'>
+
+      <input class="buttonalign" type="button" value="For ENTERTAINMENT related news click here" onclick="entertainment()">
+    </div>
+    <hr>
+    <h1 class="heading">HEALTH</h1>
+    <div id='health'>
+      <input class="buttonalign" type="button" value="For HEALTH related news click here" onclick="health()">
+    </div>
+    <hr>
+    <h1 class="heading">SCIENCE</h1>
+    <div id='science'>
+      <input class="buttonalign" type="button" value="For SCIENCE related news click here" onclick="science()">
+    </div>
+    <hr>
+    <h1 class="heading">SPORTS</h1>
+    <div id='sports'>
+      <input class="buttonalign" type="button" value="For SPORTS related news click here" onclick="sports()">
+    </div>
+    <hr>
+    <h1 class="heading">TECHNOLOGY</h1>
+    <div id='technology'>
+      <input class="buttonalign" type="button" value="For TECHNOLOGY related news click here" onclick="technology()">
+    </div>
+  </body>
+  <script>
+    function buisness() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION:</b> " + myObj.articles[i].description + "<br>"
+
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE:</b> " + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+
+          document.getElementById("buisness").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function entertainment() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION:</b> " + myObj.articles[i].description + "<br>"
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE: </b>" + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+
+          document.getElementById("entertainment").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function health() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION:</b> " + myObj.articles[i].description + "<br>"
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE: </b>" + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+
+          document.getElementById("health").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function science() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION: " + myObj.articles[i].description + "<br>"
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE:</b> " + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+
+          document.getElementById("science").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function sports() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION:</b> " + myObj.articles[i].description + "<br>"
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE:</b> " + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+          document.getElementById("sports").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function technology() {
+      var i, x = "";
+      var url =
+        'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=a5067f9c78ad4695bcd78ad7d98f5321';
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+          var myObj = JSON.parse(this.responseText);
+          for (i = 0; i < myObj.articles.length; i++) {
+            x += "<b>AUTHOR:</b> " + myObj.articles[i].author + "<br>";
+            x += "<b>TITLE:</b> " + myObj.articles[i].title + "<br>";
+            x += "<b>DESCRIPTION: </b>" + myObj.articles[i].description + "<br>"
+            x += "<a href='" + myObj.articles[i].url + "'>More Info</a>" + "<br>";
+            x += "<img style='width:40%; margin-left:23%';  src='" + myObj.articles[i].urlToImage + "'>" + "<br>";
+            x += "<b>DATE:</b> " + new Date(myObj.articles[i].publishedAt) + "<br>" + "<br>";
+          }
+
+          document.getElementById("technology").innerHTML = x;
+        }
+      };
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+  </script>
+
+
+</html>
